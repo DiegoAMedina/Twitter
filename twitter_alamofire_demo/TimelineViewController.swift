@@ -11,11 +11,24 @@ import UIKit
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tweets: [Tweet] = []
-    
+    var refreshControl: UIRefreshControl!
+    var isMoreDataLoading = false
+    var loadingMoreView:InfiniteScrollActivityView?
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up Infinite Scroll loading indicator
+        let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        tableView.contentInset = insets
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -23,14 +36,28 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        getHomeTimeline()
+        
+        
+    }
+    
+    func getHomeTimeline(){
+        
         APIManager.shared.getHomeTimeLine { (tweets, error) in
             if let tweets = tweets {
+                self.isMoreDataLoading = false
                 self.tweets = tweets
                 self.tableView.reloadData()
             } else if let error = error {
                 print("Error getting home timeline: " + error.localizedDescription)
             }
         }
+        
+        self.refreshControl.endRefreshing()
+        self.loadingMoreView!.stopAnimating()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +76,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        getHomeTimeline()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,6 +92,30 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading){
+            
+            // calculate the position of one screen before the bottom
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollViewThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            if( scrollView.contentOffset.y > scrollViewThreshold && tableView.isDragging ){
+                
+                isMoreDataLoading = true
+                
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                
+                getHomeTimeline()
+            }
+            
+        } // if
+    }
+    
+    
     
     
     /*
