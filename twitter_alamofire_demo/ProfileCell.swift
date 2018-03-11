@@ -10,6 +10,35 @@ import UIKit
 
 class ProfileCell: UITableViewCell {
 
+    @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var userProfileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userScreenName: UILabel!
+    @IBOutlet weak var userDescription: UILabel!
+    @IBOutlet weak var tweetsCount: UILabel!
+    @IBOutlet weak var tweetsLabel: UILabel!
+    @IBOutlet weak var followersCount: UILabel!
+    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingCount: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    
+    
+    
+    
+    var user: User!{
+        didSet{
+            
+            userProfileImage.af_setImage(withURL: user.imageUrl)
+            userName.text = user.name
+            userScreenName.text = user.screenName
+            userDescription.text = user.description
+            tweetsCount.text = "\(user.tweetsCount)"
+            followersCount.text = "\(user.followersCount)"
+            followingCount.text = "\(user.followingCount)"
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
