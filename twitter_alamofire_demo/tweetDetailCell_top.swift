@@ -16,6 +16,27 @@ class tweetDetailCell_top: UITableViewCell {
     @IBOutlet weak var tweetText: UILabel!
     @IBOutlet weak var tweetCreatedAt: UILabel!
     
+    var tweet:Tweet!{
+        didSet{
+            tweetText.text = tweet.text
+            userProfileImage.layer.cornerRadius = 40
+            userProfileImage.clipsToBounds = true
+            userProfileImage.af_setImage(withURL: tweet.user.imageUrl)
+            userName.text = tweet.user.name
+            
+            userScreenName.text = tweet.user.screenName
+            let df = DateFormatter()
+            df.dateStyle = .full
+            df.timeStyle = .full
+            
+//            let date = df.date(from: tweet.createdAtString)!
+//            df.dateStyle = .short
+//            df.timeStyle = .short
+//            tweetCreatedAt.text = df.string(from: date)
+            tweetCreatedAt.text = tweet.createdAtString
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -8,17 +8,46 @@
 
 import UIKit
 
-class TweetDetailViewController: UIViewController {
+class TweetDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+
+    var tweet: Tweet!
     @IBOutlet weak var detailTableView: UITableView!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        detailTableView.delegate = self
+        detailTableView.dataSource = self
+        detailTableView.reloadData()
     }
 
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        if(indexPath.row == 0){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tweetDetailCell_top", for: indexPath) as! tweetDetailCell_top
+            cell.tweet = tweet
+            return cell
+        }
+        else if(indexPath.row == 1){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tweetDetailCell_middle", for: indexPath) as! tweetDetailCell_middle
+            cell.tweet = tweet
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tweetDetailCell_bottom", for: indexPath) as! tweetDetailCell_bottom
+            cell.tweet = tweet
+            return cell
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
