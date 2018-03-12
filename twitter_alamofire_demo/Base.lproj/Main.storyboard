@@ -188,7 +188,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="fgd-wz-qq5"/>
                     <navigationItem key="navigationItem" title="Home Timeline" id="9Zi-uW-GTS">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="message-icon" id="4yH-75-7Wq">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="edit-icon" id="4yH-75-7Wq">
                             <connections>
                                 <segue destination="h9Z-df-Snw" kind="presentation" id="qiC-9F-z46"/>
                             </connections>
@@ -842,9 +842,9 @@
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="back-icon" width="30" height="30"/>
+        <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="home-icon" width="30" height="30"/>
-        <image name="message-icon" width="30" height="30"/>
         <image name="profile-Icon" width="26" height="26"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>

@@ -19,16 +19,13 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var postTextField: UITextView!
     @IBOutlet weak var postButton: UIButton!
     
-    var tweet: Tweet!{
-        didSet{
-            userProfileImage.af_setImage(withURL: tweet.user.imageUrl)
-        }
-    }
-    
+
     weak var delegate: ComposeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userProfileImage.af_setImage(withURL: (User.current?.imageUrl)!)
         
         postButton.isUserInteractionEnabled = true
 

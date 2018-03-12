@@ -19,6 +19,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         // Set up Infinite Scroll loading indicator
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
@@ -39,6 +41,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        
         getHomeTimeline()
         
         
@@ -58,6 +61,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.refreshControl.endRefreshing()
         self.loadingMoreView!.stopAnimating()
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
