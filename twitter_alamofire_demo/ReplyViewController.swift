@@ -26,7 +26,7 @@ class ReplyViewController: UIViewController,UITextViewDelegate {
     weak var delegate: ReplyViewControllerDelegate?
     var tweet: Tweet!{
         didSet{
-            tweet.idString = tweet.idString
+            idStr = tweet.idString
         }
     }
     
