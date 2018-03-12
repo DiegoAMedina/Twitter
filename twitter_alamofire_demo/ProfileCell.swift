@@ -28,6 +28,7 @@ class ProfileCell: UITableViewCell {
     var user: User!{
         didSet{
             
+            bannerImage.af_setImage(withURL: user.bannerImageURL)
             userProfileImage.af_setImage(withURL: user.imageUrl)
             userName.text = user.name
             userScreenName.text = user.screenName
@@ -42,6 +43,9 @@ class ProfileCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

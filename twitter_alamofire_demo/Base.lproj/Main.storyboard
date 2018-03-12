@@ -250,7 +250,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ck7-Dv-iXL">
-                                                    <rect key="frame" x="8" y="216.5" width="23" height="16"/>
+                                                    <rect key="frame" x="8" y="216.5" width="359" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -321,6 +321,7 @@
                                                 <constraint firstItem="rFT-va-kla" firstAttribute="leading" secondItem="ARB-bV-NC9" secondAttribute="trailing" constant="8" id="dfr-OW-HWu"/>
                                                 <constraint firstItem="iIo-fb-R8h" firstAttribute="top" secondItem="YJG-id-Qcf" secondAttribute="top" id="nrr-Do-WbU"/>
                                                 <constraint firstItem="Ck7-Dv-iXL" firstAttribute="leading" secondItem="K9f-iQ-Ss7" secondAttribute="leading" constant="8" id="sXc-xi-0gY"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ck7-Dv-iXL" secondAttribute="trailing" constant="8" id="tSU-T7-Ww4"/>
                                                 <constraint firstItem="IDw-e7-hIB" firstAttribute="top" secondItem="K9f-iQ-Ss7" secondAttribute="top" id="vpX-hI-JKw"/>
                                                 <constraint firstItem="iIo-fb-R8h" firstAttribute="leading" secondItem="rFT-va-kla" secondAttribute="trailing" constant="8" id="wV5-rf-4u4"/>
                                                 <constraint firstItem="HlV-7y-DxJ" firstAttribute="leading" secondItem="K9f-iQ-Ss7" secondAttribute="leading" constant="8" id="yRb-mN-1Df"/>
@@ -360,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9li-Ng-xpV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="446" y="1559"/>
+            <point key="canvasLocation" x="445.60000000000002" y="1558.4707646176912"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="Jv9-JE-D1y">

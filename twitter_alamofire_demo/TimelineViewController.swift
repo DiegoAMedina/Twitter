@@ -131,6 +131,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     func did(post: Tweet) {
         tweets.insert(post, at: 0)
         tableView.reloadData()
+        getHomeTimeline()
     }
     
     /*

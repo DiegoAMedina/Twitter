@@ -10,6 +10,7 @@ import Foundation
 
 class User {
     
+    var id: Int64
     var name: String?
     var screenName: String?
     var imageUrl: URL
@@ -48,7 +49,8 @@ class User {
     }
 
     init(dictionary: [String: Any]) {
-        self.dictionary = dictionary
+        
+        id = dictionary["id"] as! Int64
         name = dictionary["name"] as? String
         screenName = dictionary["screen_name"] as? String
         imageUrl = URL(string: dictionary["profile_image_url_https"] as! String)!
@@ -58,11 +60,13 @@ class User {
         description = dictionary["description"] as! String
         tweetsCount = dictionary["statuses_count"] as! Int
         
-        if dictionary["profile_banner_url"] != nil  {
+        if !(dictionary["profile_banner_url"] == nil)  {
             bannerImageURL = URL(string:dictionary["profile_banner_url"] as! String)!
         }else{
-            bannerImageURL = URL(string:"nil")!
+            bannerImageURL = URL(string:"http://orig02.deviantart.net/b235/f/2011/292/7/a/windows_8_blue_grain_by_ipur-d4dbkwa.jpg")!
         }
+        
+        self.dictionary = dictionary
     }
     
     
