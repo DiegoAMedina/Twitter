@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RSKPlaceholderTextView
 
 protocol ReplyViewControllerDelegate: NSObjectProtocol {
     func did(post: Tweet)
@@ -16,7 +17,7 @@ class ReplyViewController: UIViewController,UITextViewDelegate {
 
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var messageTitle: UILabel!
-    @IBOutlet weak var replyTextView: UITextView!
+    @IBOutlet weak var replyTextView: RSKPlaceholderTextView!
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var characterCountLabel: UILabel!
     
@@ -27,7 +28,7 @@ class ReplyViewController: UIViewController,UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        userProfileImage.af_setImage(withURL: tweet.user.imageUrl)
+        replyTextView.placeholder = "Type in here!"
         replyTextView.delegate = self
     }
 

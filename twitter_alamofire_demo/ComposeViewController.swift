@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RSKPlaceholderTextView
 
 protocol ComposeViewControllerDelegate: NSObjectProtocol {
     func did(post: Tweet)
@@ -16,7 +17,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var textCountLabel: UILabel!
-    @IBOutlet weak var postTextField: UITextView!
+    @IBOutlet weak var postTextField: RSKPlaceholderTextView!
     @IBOutlet weak var postButton: UIButton!
     
 
@@ -24,6 +25,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        postTextField.placeholder = "Whats up?"
         
         userProfileImage.af_setImage(withURL: (User.current?.imageUrl)!)
         
