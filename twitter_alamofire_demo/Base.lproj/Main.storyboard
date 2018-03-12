@@ -676,9 +676,8 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="zpC-bk-bF3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-al-TxS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-al-TxS">
                                 <rect key="frame" x="134" y="97" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -712,14 +711,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="n2J-al-TxS" firstAttribute="top" secondItem="vfs-Zt-wCN" secondAttribute="bottom" constant="33" id="56E-pp-TGw"/>
                             <constraint firstItem="CKF-wc-gLa" firstAttribute="top" secondItem="Nsl-iq-BOm" secondAttribute="bottom" constant="8" id="6B2-j9-Sxb"/>
                             <constraint firstItem="IJs-o5-C8D" firstAttribute="top" secondItem="vfs-Zt-wCN" secondAttribute="bottom" constant="8" id="CK5-d1-dHi"/>
+                            <constraint firstItem="n2J-al-TxS" firstAttribute="leading" secondItem="IJs-o5-C8D" secondAttribute="trailing" constant="58" id="Gg9-Lo-yuw"/>
                             <constraint firstItem="8LH-zM-RLm" firstAttribute="top" secondItem="Rd2-2U-45s" secondAttribute="bottom" constant="8" id="Mfm-PH-P20"/>
                             <constraint firstItem="Nsl-iq-BOm" firstAttribute="leading" secondItem="zhI-9l-pUD" secondAttribute="leading" constant="8" id="PU2-cZ-C7v"/>
                             <constraint firstItem="8LH-zM-RLm" firstAttribute="top" secondItem="CKF-wc-gLa" secondAttribute="bottom" constant="8" id="Q9f-kL-QeQ"/>
                             <constraint firstItem="Rd2-2U-45s" firstAttribute="top" secondItem="Nsl-iq-BOm" secondAttribute="bottom" constant="8" id="S9a-iK-jRW"/>
                             <constraint firstAttribute="trailing" secondItem="CKF-wc-gLa" secondAttribute="trailing" constant="8" id="WdZ-8k-EPr"/>
                             <constraint firstItem="Nsl-iq-BOm" firstAttribute="top" secondItem="IJs-o5-C8D" secondAttribute="bottom" constant="8" id="axr-t3-P60"/>
+                            <constraint firstItem="Nsl-iq-BOm" firstAttribute="top" secondItem="n2J-al-TxS" secondAttribute="bottom" constant="34" id="dGv-VL-tCF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n2J-al-TxS" secondAttribute="trailing" constant="118" id="iaN-T4-pFO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rd2-2U-45s" secondAttribute="trailing" constant="133" id="jih-7d-htD"/>
                             <constraint firstItem="Rd2-2U-45s" firstAttribute="top" secondItem="Nsl-iq-BOm" secondAttribute="bottom" constant="8" id="lIP-uZ-vus"/>
                             <constraint firstAttribute="trailing" secondItem="Nsl-iq-BOm" secondAttribute="trailing" constant="8" id="rPR-lr-EWG"/>

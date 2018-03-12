@@ -21,9 +21,14 @@ class ReplyViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var characterCountLabel: UILabel!
     
+    var idStr = String()
     
     weak var delegate: ReplyViewControllerDelegate?
-    var tweet: Tweet!
+    var tweet: Tweet!{
+        didSet{
+            tweet.idString = tweet.idString
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,8 @@ class ReplyViewController: UIViewController,UITextViewDelegate {
         
         let tweetText = replyTextView.text
         
-        APIManager.shared.replyTweet(with: tweetText!, with: tweet.idString) { (tweet, error) in
+        
+        APIManager.shared.replyTweet(with: tweetText!, with: idStr) { (tweet, error) in
         
             if let error = error {
                 print("Error replying Tweet: \(error.localizedDescription)")
